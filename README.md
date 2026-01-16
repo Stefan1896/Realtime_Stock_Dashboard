@@ -35,18 +35,16 @@ The repository includes:
 - Exported code and logic for full transparency
 
 ## Learnings & Next Steps
-This project strengthened my expertise in:
+Main learnings of the project were:
 
--- Designing scalable Lakehouse architectures
+- Understanding Fabric limitations and available workarounds, such as the inability to modify notebook parameters within deployment pipelines. Additionally, semantic models can only switch Lakehouse connections when they originate from an SQL endpoint.
 
--- Building modular Fabric pipelines
+- Designing scalable Lakehouse architectures, with clear separation between ingestion, transformation, and consumption layers to ensure maintainability and reproducibility.
 
--- Implementing clean semantic models 
+- Building modular Fabric pipelines, focusing on parallelization, reusable logic, and stage‑aware validation to support future CI/CD integration.
 
 ## Future improvements could include:
 
-CI/CD integration via GitHub or Azure DevOps
+- CI/CD integration via GitHub or Azure DevOps
 
-Expanded Data Quality rules
-
-Additional data sources and predictive analytics
+- Expanded Data Quality rules
