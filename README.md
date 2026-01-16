@@ -43,7 +43,7 @@ The repository includes:
 ## Learnings & Next Steps
 Main learnings of the project were:
 
-- Understanding Fabric limitations and available workarounds, such as the inability to modify notebook parameters within deployment pipelines. Additionally, semantic models can only switch Lakehouse connections when they originate from an SQL endpoint.
+- Understanding Fabric limitations and available workarounds, such as the inability to modify notebook parameters within deployment pipelines rules. Additionally, data source deployment rules for semantic models can only be configured when the semantic model originates from an SQL endpoint.
 
 - Designing scalable Lakehouse architectures, with clear separation between ingestion, transformation, and consumption layers to ensure maintainability and reproducibility.
 
