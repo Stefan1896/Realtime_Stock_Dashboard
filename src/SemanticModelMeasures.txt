@@ -1,0 +1,92 @@
+gold_stock_minutes_indicators
+
+Downtrend Minutes = 
+CALCULATE(
+    COUNTROWS('gold_stock_minutes_indicators'),
+    'gold_stock_minutes_indicators'[ema_cross_signal] = "bearish"
+)
+
+Percent Since Open = 
+VAR FirstTimestamp =
+    CALCULATE(
+        MIN('gold_stock_minutes_indicators'[timestamp]),
+        ALLSELECTED('gold_stock_minutes_indicators')
+    )
+VAR LastTimestamp =
+    CALCULATE(
+        MAX('gold_stock_minutes_indicators'[timestamp]),
+        ALLSELECTED('gold_stock_minutes_indicators')
+    )
+VAR FirstClose =
+    CALCULATE(
+        MAX('gold_stock_minutes_indicators'[close]),
+        'gold_stock_minutes_indicators'[timestamp] = FirstTimestamp
+    )
+VAR LastClose =
+    CALCULATE(
+        MAX('gold_stock_minutes_indicators'[close]),
+        'gold_stock_minutes_indicators'[timestamp] = LastTimestamp
+    )
+RETURN
+DIVIDE(LastClose - FirstClose, FirstClose)
+
+gold_stock_daily_indicators
+
+BB_Band_Bottom = 
+CALCULATE (
+    MAX ( 'gold_stock_daily_indicators'[close] )
+    - MAX ( 'gold_stock_daily_indicators'[bb_lower] )
+)
+
+BB_Band_Top = 
+CALCULATE (
+    MAX ( 'gold_stock_daily_indicators'[bb_upper] )
+    - MAX ( 'gold_stock_daily_indicators'[close] )
+)
+
+Close Latest = 
+VAR LatestDate =
+    MAX ( 'gold_stock_daily_indicators'[date] )
+RETURN
+CALCULATE (
+    MAX ( 'gold_stock_daily_indicators'[close] ),
+    'gold_stock_daily_indicators'[date] = LatestDate
+)
+
+Momentum Score Latest = 
+VAR LatestDate =
+    MAX ( 'gold_stock_trend_signals'[date] )
+RETURN
+CALCULATE (
+    MAX ( 'gold_stock_trend_signals'[momentum_score] ),
+    'gold_stock_trend_signals'[date] = LatestDate
+)
+
+Return Daily Latest = 
+VAR LatestDate =
+    MAX ( 'gold_stock_daily_indicators'[date] )
+RETURN
+CALCULATE (
+    MAX ( 'gold_stock_daily_indicators'[return_daily] ),
+    'gold_stock_daily_indicators'[date] = LatestDate
+)
+
+Trend Direction Latest = 
+VAR LatestDate =
+    CALCULATE (
+        MAX ( 'gold_stock_trend_signals'[date] )
+    )
+RETURN
+CALCULATE (
+    SELECTEDVALUE ( 'gold_stock_trend_signals'[trend_direction] ),
+    'gold_stock_trend_signals'[date] = LatestDate
+)
+
+Volatility 30D Latest = 
+VAR LatestDate =
+    MAX ( 'gold_stock_daily_indicators'[date] )
+RETURN
+CALCULATE (
+    MAX ( 'gold_stock_daily_indicators'[volatility_30] ),
+    'gold_stock_daily_indicators'[date] = LatestDate
+)
