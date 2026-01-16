@@ -1,4 +1,4 @@
-# realtime-stock-analytics
+# Realtime Stock Dashboard
 
 <img width="1658" height="869" alt="Dashboard_Intraday_Tab" src="https://github.com/user-attachments/assets/d1234944-4496-4d41-b6a1-87200586f068" />
 <img width="1647" height="867" alt="Dashboard_Overview_Tab" src="https://github.com/user-attachments/assets/bf79f2b3-206f-4679-a628-26ecee8091ec" />
