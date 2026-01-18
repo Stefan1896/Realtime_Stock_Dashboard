@@ -4,9 +4,10 @@
 <img width="1647" height="867" alt="Dashboard_Overview_Tab" src="https://github.com/user-attachments/assets/bf79f2b3-206f-4679-a628-26ecee8091ec" />
 
 
-This project showcases a complete end‑to‑end data solution built in Microsoft Fabric, covering ingestion, transformation, modeling, and interactive reporting. The goal was to design a scalable, modular, and production‑ready analytics pipeline that processes intraday stock market data as well as daily historical data and delivers near real‑time insights through a Power BI dashboard.
+This project showcases a complete end‑to‑end data solution built in Microsoft Fabric, covering data ingestion, transformation, modeling, and interactive reporting. The objective was to design a scalable, modular, and production‑ready data pipeline capable of processing both intraday stock market data and historical daily data, and delivering near real‑time insights through a Power BI dashboard.
 
-For this project, daily stock data for the five largest companies was collected from 2011 onward, complemented by minute‑level price data for the current and most recent trading day. The intraday pipeline was configured to refresh every five minutes, enabling a near real‑time analytics experience.
+Daily stock data for the five largest U.S. companies was collected from 2011 onward, complemented by minute‑level price data for the current and most recent trading day.
+The intraday pipeline refreshes every five minutes, enabling a near real‑time analytics experience.
 
 The work was developed in a Fabric Test Workspace without Git integration, which required a fully manual export of all available assets. To preserve transparency and reproducibility, the repository includes exported notebooks, SQL logic, screenshots of the pipeline and Lakehouse structure, and a demo video of the final dashboard.
 
@@ -27,7 +28,7 @@ Checks for table existence, schema consistency, null handling and duplicates.
 Well‑structured star schema with clear relationships, optimized for performance and maintainability.
 
 - Interactive Power BI Dashboard  
-Near Real‑time Intraday tab, common stock KPIs, trend analysis, and filtering options.
+Near real‑time intraday analytics, daily indicators and trend signals, volatility and momentum metrics.
 
 
 
@@ -41,7 +42,7 @@ The repository includes:
 - Exported code and logic for full transparency
 
 ## Learnings & Next Steps
-Main learnings of the project were:
+Key Learnings:
 
 - Understanding Fabric limitations and available workarounds, such as the inability to modify notebook parameters within deployment pipelines rules. Additionally, data source deployment rules for semantic models can only be configured when the semantic model originates from an SQL endpoint.
 
@@ -53,4 +54,6 @@ Main learnings of the project were:
 
 - CI/CD integration via GitHub or Azure DevOps
 
-- Expanded Data Quality rules
+- Expanded Data Quality rules and monitoring
+
+- Automated alerting for trend or volatility signals
